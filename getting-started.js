@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 //access the connect method of the mongoose object
 //pass in the localhost test database
 //and some options inside of another object
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
+const mongoDB ='mongodb+srv://Arlaysha:<password>@cluster0.5yt7f.mongodb.net/<dbname>?retryWrites=true&w=majority'
+mongoose.connect('mongodb+srv://Arlaysha:<password>@cluster0.5yt7f.mongodb.net/<dbname>?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 //make another constant variable called db
 //and we set it equal to the connection property of our mongoose object 
@@ -57,7 +58,54 @@ db.once('open', function(){
         ]
     };
 
-    let stoneSoup = new Recipe(stoneSoupObj);
+    let stoneSoup = new Recipe(stoneSoupObj);  
+
+
+//recipe
+  /* documents */ 
+  let peanutButterAndJellySandwhichObj = {
+    name : "Pb&J", 
+    description: "Peanut Butter And Jelly Sandwhich",
+    instructions: "Spread Jelly on one slice of bread. Spread peanut butter on the other slices of bread. Lay the two slices together so that the jelly and peanut butter are touching to make a sandwhich",
+    ingredients : [ 
+        { name : "Bread",
+        measurement: "Slices", 
+        amount : 2 },
+        
+        { name : "Peanut Butter",
+        measurement: "Null", 
+        amount : null },
+
+        { name : "Jelly",
+        measurement: "Null", 
+        amount : null 
+        }
+    ]
+};
+let peanutButterAndJellySandwhich = new Recipe(peanutButterAndJellySandwhichObj);  
+
+//recipe
+  /* documents */ 
+  let freshLemonadeObj = {
+    name : "Lemonade", 
+    description: "Fresh Lemonade",
+    instructions: "Add lemon juice to pitcher, add sugar and water. Stir and add more sugar to taste",
+    ingredients : [ 
+        { name : "Lemon Juice",
+        measurement: "Cups", 
+        amount : 1 },
+        
+        { name : "Water",
+        measurement: "Cups", 
+        amount : 16 },
+
+        { name : "Sugar",
+        measurement: "Cups", 
+        amount : 2
+        }
+    ]
+};
+
 
     let silence = new Kitten({ name : "Silence" }); 
     silence.speak(); 
